@@ -1,8 +1,10 @@
 # Overcoming Microstructure Frictions and Concept Drift via Calibrated Meta-Labeling: An Econometrically Grounded Architecture for Emerging Equity Markets
 
-![Python 3.10+](https://www.python.org/)
-![License: MIT](https://opensource.org/licenses/MIT)
-![Research Phase-success.svg)](#)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Research Phase](https://img.shields.io/badge/Research%20Continuum-Phase%203%20(Final)-success.svg)](#)
+[![Market: HOSE](https://img.shields.io/badge/Market-HOSE%20(Vietnam)-red.svg)](#)
+[![Methodology: Meta--Labeling](https://img.shields.io/badge/Methodology-Meta--Labeling-brightgreen.svg)](#)
 
 This repository constitutes **Phase 3** of the empirical quantitative research continuum evaluating predictability and execution architectures in emerging financial markets (HOSE, Vietnam).
 
