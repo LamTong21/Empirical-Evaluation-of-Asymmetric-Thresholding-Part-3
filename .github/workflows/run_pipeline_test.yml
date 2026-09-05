@@ -1,0 +1,38 @@
+name: Quant ML Pipeline CI & Integrity Audit
+
+on:
+  push:
+    branches: [ main, master, dev ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  audit-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest flake8
+
+      - name: Lint Source Code with Flake8
+        run: |
+          # Dừng build nếu có lỗi cú pháp hoặc biến chưa được định nghĩa
+          flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics
+          # Cảnh báo các lỗi chuẩn định dạng PEP8
+          flake8 src/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Run Integrity & Non-Leakage Tests
+        run: |
+          python -m unittest discover -s tests/ -p "test_*.py"
